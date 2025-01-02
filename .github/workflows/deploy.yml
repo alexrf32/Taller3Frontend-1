@@ -10,34 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Paso 1: Limpieza del directorio Git (para evitar conflictos)
-      - name: Clean .git directory
-        run: |
-          rm -rf .git
-          git init
-          git remote add origin https://github.com/alexrf32/Taller3Frontend-1.git
-
-      # Paso 2: Checkout del código
+      # Paso 1: Checkout del código
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
 
-      # Paso 3: Configuración de Node.js
+      # Paso 2: Configuración de Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # Paso 4: Instalación de dependencias
+      # Paso 3: Instalación de dependencias
       - name: Install dependencies
         run: npm install
 
-      # Paso 5: Construcción del proyecto
+      # Paso 4: Construcción del proyecto
       - name: Build project
         run: npm run build
 
-      # Paso 6: Despliegue en Firebase Hosting
+      # Paso 5: Despliegue en Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
