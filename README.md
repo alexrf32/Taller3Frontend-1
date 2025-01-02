@@ -1,13 +1,60 @@
-# Getting Started with Create React App
+# Taller 3 Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es el frontend desarrollado en React para el Taller 3 de Arquitectura de Sistemas. Está configurado para despliegue en Firebase Hosting con un flujo de CI/CD automatizado mediante GitHub Actions.
 
-## How to run
+## Cómo ejecutar el proyecto localmente
 
-1. Clone this repository.
-2. Make sure to have [Node.js](https://nodejs.org/download/release/v18.19.0/node-v18.19.0-x64.msi) installed. Version 18.19.0 will work.
-3. Install dependencies, with the `npm install` command.
-4. Update the backend server address or domain name in [agent.ts](src/app/api/agent.ts).
-5. Run the project, with `npm start`.
+1. **Clona este repositorio**
+   ```bash
+   git clone https://github.com/alexrf32/Taller3Frontend-1.git
+   cd Taller3Frontend
+Asegúrate de tener Node.js instalado
+Descarga e instala la versión 18.19.0 de Node.js desde este enlace:
+Node.js v18.19.0.
 
-It will be hosted on [http://localhost:3000](http://localhost:3000).
+Instala las dependencias
+Ejecuta el siguiente comando:
+
+npm install
+Configura la URL del backend
+Abre el archivo src/app/api/agent.ts y actualiza la constante API_URL para apuntar al backend desplegado.
+
+const API_URL = "https://taller3backend-arqui-latest.onrender.com";
+Ejecuta el proyecto en modo desarrollo
+
+Inicia el servidor de desarrollo con:
+npm start
+El proyecto estará disponible en http://localhost:3000.
+
+Despliegue en Firebase Hosting
+El frontend está desplegado en Firebase Hosting. Puedes acceder al proyecto en línea en:
+https://taller3-frontend.web.app
+
+Cómo realizar un nuevo despliegue manual
+Construye el proyecto para producción:
+
+npm run build
+
+Despliega en Firebase Hosting:
+
+firebase deploy
+
+Flujo de CI/CD con GitHub Actions
+El proyecto cuenta con un flujo de CI/CD configurado para desplegar automáticamente en Firebase Hosting al realizar un commit en la rama principal.
+
+Configuración del flujo
+El workflow de GitHub Actions está definido en .github/workflows/deploy.yml. Sigue estos pasos para verificar la configuración:
+
+Configura el secreto FIREBASE_SERVICE_ACCOUNT
+
+Genera una clave privada en Firebase Console (Configuración > Cuentas de servicio > Generar clave privada).
+Agrega el archivo JSON como un secreto en GitHub con el nombre FIREBASE_SERVICE_ACCOUNT.
+Realiza un commit en la rama principal
+Al realizar un commit en la rama main, el flujo de trabajo automáticamente:
+
+Instalará dependencias.
+Construirá la aplicación.
+Desplegará la nueva versión en Firebase Hosting.
+
+Información adicional
+El backend está disponible en: https://taller3backend-arqui-latest.onrender.com.
